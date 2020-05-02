@@ -11,12 +11,15 @@ import SwiftUI
 struct NewsFeedView: View {
     
     // MARK: - Properties
-    @ObservedObject private var newsFeedViewModel = NewsFeedViewModel()
+    @EnvironmentObject private var newsFeedViewModel: NewsFeedViewModel
     
     // MARK: - Body
     var body: some View {
-        List(newsFeedViewModel.favoriteArtists) {
-            Text($0.name)
+        NavigationView {
+            List(newsFeedViewModel.favoriteArtists) {
+                NewsFeedArtistLatestReleaseComponent(artist: $0)
+            }
+            .navigationBarTitle("News feed")
         }
         .onAppear { self.newsFeedViewModel.fetchUserFavoriteArtists() }
     }
@@ -25,5 +28,6 @@ struct NewsFeedView: View {
 struct NewsFeedView_Previews: PreviewProvider {
     static var previews: some View {
         NewsFeedView()
+            .environmentObject(NewsFeedViewModel(favoriteArtists: NewsFeedArtist.list))
     }
 }

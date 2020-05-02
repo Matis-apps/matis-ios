@@ -10,7 +10,7 @@ struct DeezerArtistsData: Codable {
     let data: [DeezerArtist]
 }
 
-struct DeezerArtist: Codable, Identifiable {
+struct DeezerArtist: Codable {
     let id: Int
     let name: String
 }

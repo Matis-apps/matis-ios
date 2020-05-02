@@ -8,11 +8,7 @@
 
 import Combine
 
-protocol DeezerServiceContract {
-    func getUserFavoriteArtists(userId: Int) -> AnyPublisher<[DeezerArtist], Error>
-}
-
-final class DeezerService: DeezerServiceContract {
+final class DeezerService {
     
     // MARK: - Properties
     private let apiRequester = ApiRequester()
@@ -20,6 +16,10 @@ final class DeezerService: DeezerServiceContract {
     // MARK: - Methods
     func getUserFavoriteArtists(userId: Int) -> AnyPublisher<[DeezerArtist], Error> {
         apiRequester.fetch(UserFavoriteArtistsEndpoint(), with: userId)
+    }
+    
+    func getArtistAlbums(artistId: Int) -> AnyPublisher<[DeezerAlbum], Error> {
+        apiRequester.fetch(ArtistAlbumsEndpoint(), with: artistId)
     }
     
 }

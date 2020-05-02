@@ -23,6 +23,12 @@
 		521F1C61245DFC7D00E2A7B1 /* UserFavoriteArtistsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C60245DFC7D00E2A7B1 /* UserFavoriteArtistsEndpoint.swift */; };
 		521F1C66245DFD3600E2A7B1 /* DeezerApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C65245DFD3600E2A7B1 /* DeezerApiEndpoint.swift */; };
 		521F1C6A245E010200E2A7B1 /* NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C69245E010200E2A7B1 /* NewsFeedViewModel.swift */; };
+		521F1C6C245E049C00E2A7B1 /* DeezerAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C6B245E049C00E2A7B1 /* DeezerAlbum.swift */; };
+		521F1C6E245E051100E2A7B1 /* ArtistAlbumsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C6D245E051100E2A7B1 /* ArtistAlbumsEndpoint.swift */; };
+		521F1C70245E059D00E2A7B1 /* NewsFeedArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C6F245E059D00E2A7B1 /* NewsFeedArtist.swift */; };
+		521F1C72245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C71245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift */; };
+		521F1C77245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */; };
+		521F1C7A245E158800E2A7B1 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C79245E158800E2A7B1 /* Date+Format.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +50,12 @@
 		521F1C60245DFC7D00E2A7B1 /* UserFavoriteArtistsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoriteArtistsEndpoint.swift; sourceTree = "<group>"; };
 		521F1C65245DFD3600E2A7B1 /* DeezerApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeezerApiEndpoint.swift; sourceTree = "<group>"; };
 		521F1C69245E010200E2A7B1 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
+		521F1C6B245E049C00E2A7B1 /* DeezerAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeezerAlbum.swift; sourceTree = "<group>"; };
+		521F1C6D245E051100E2A7B1 /* ArtistAlbumsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumsEndpoint.swift; sourceTree = "<group>"; };
+		521F1C6F245E059D00E2A7B1 /* NewsFeedArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedArtist.swift; sourceTree = "<group>"; };
+		521F1C71245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedLatestRelease.swift; sourceTree = "<group>"; };
+		521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedArtistLatestReleaseComponent.swift; sourceTree = "<group>"; };
+		521F1C79245E158800E2A7B1 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +91,11 @@
 				521F1C2E245DF5C400E2A7B1 /* AppDelegate.swift */,
 				521F1C30245DF5C400E2A7B1 /* SceneDelegate.swift */,
 				521F1C47245DF76100E2A7B1 /* Core */,
+				521F1C78245E157500E2A7B1 /* Extension */,
 				521F1C54245DFAAF00E2A7B1 /* Service */,
 				521F1C5B245DFBBA00E2A7B1 /* Entity */,
 				521F1C67245E005F00E2A7B1 /* ViewModel */,
+				521F1C73245E088F00E2A7B1 /* Component */,
 				521F1C43245DF5EC00E2A7B1 /* View */,
 				521F1C42245DF5E000E2A7B1 /* Resource */,
 			);
@@ -156,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				521F1C5C245DFBCB00E2A7B1 /* Deezer */,
+				521F1C6F245E059D00E2A7B1 /* NewsFeedArtist.swift */,
+				521F1C71245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -164,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				521F1C5D245DFBD800E2A7B1 /* DeezerArtist.swift */,
+				521F1C6B245E049C00E2A7B1 /* DeezerAlbum.swift */,
 			);
 			path = Deezer;
 			sourceTree = "<group>";
@@ -173,6 +190,7 @@
 			children = (
 				521F1C65245DFD3600E2A7B1 /* DeezerApiEndpoint.swift */,
 				521F1C60245DFC7D00E2A7B1 /* UserFavoriteArtistsEndpoint.swift */,
+				521F1C6D245E051100E2A7B1 /* ArtistAlbumsEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -183,6 +201,22 @@
 				521F1C69245E010200E2A7B1 /* NewsFeedViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		521F1C73245E088F00E2A7B1 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		521F1C78245E157500E2A7B1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				521F1C79245E158800E2A7B1 /* Date+Format.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,18 +312,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				521F1C6E245E051100E2A7B1 /* ArtistAlbumsEndpoint.swift in Sources */,
 				521F1C4E245DF77600E2A7B1 /* BaseRequest.swift in Sources */,
 				521F1C61245DFC7D00E2A7B1 /* UserFavoriteArtistsEndpoint.swift in Sources */,
 				521F1C2F245DF5C400E2A7B1 /* AppDelegate.swift in Sources */,
 				521F1C50245DF77600E2A7B1 /* Reachability.swift in Sources */,
 				521F1C66245DFD3600E2A7B1 /* DeezerApiEndpoint.swift in Sources */,
 				521F1C4F245DF77600E2A7B1 /* ApiRequester.swift in Sources */,
+				521F1C7A245E158800E2A7B1 /* Date+Format.swift in Sources */,
+				521F1C77245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift in Sources */,
 				521F1C51245DF77600E2A7B1 /* Request.swift in Sources */,
 				521F1C5E245DFBD800E2A7B1 /* DeezerArtist.swift in Sources */,
+				521F1C72245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift in Sources */,
+				521F1C6C245E049C00E2A7B1 /* DeezerAlbum.swift in Sources */,
 				521F1C6A245E010200E2A7B1 /* NewsFeedViewModel.swift in Sources */,
 				521F1C5A245DFAF100E2A7B1 /* DeezerService.swift in Sources */,
 				521F1C31245DF5C400E2A7B1 /* SceneDelegate.swift in Sources */,
 				521F1C33245DF5C400E2A7B1 /* NewsFeedView.swift in Sources */,
+				521F1C70245E059D00E2A7B1 /* NewsFeedArtist.swift in Sources */,
 				521F1C52245DF77600E2A7B1 /* ApiEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +471,7 @@
 				DEVELOPMENT_TEAM = D27NXEG753;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Matis/Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,6 +492,7 @@
 				DEVELOPMENT_TEAM = D27NXEG753;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Matis/Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
