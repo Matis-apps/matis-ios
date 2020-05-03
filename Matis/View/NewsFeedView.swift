@@ -16,8 +16,18 @@ struct NewsFeedView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-            List(newsFeedViewModel.favoriteArtists) {
-                NewsFeedArtistLatestReleaseComponent(artist: $0)
+            ZStack {
+                if !newsFeedViewModel.favoriteArtists.isEmpty {
+                    ScrollView(.vertical, showsIndicators: true) {
+                        VStack(alignment: .leading) {
+                            ForEach(newsFeedViewModel.favoriteArtists) {
+                                NewsFeedComponent(artist: $0)
+                            }
+                        }
+                    }
+                } else {
+                    Text("Chargement ...")
+                }
             }
             .navigationBarTitle("Dernières sorties")
         }

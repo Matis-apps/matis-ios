@@ -10,7 +10,7 @@ struct NewsFeedArtist: Identifiable {
     let id: Int
     let name: String
     let avatarPath: String
-    let latestRelease: NewsFeedLatestRelease
+    var latestRelease: NewsFeedLatestRelease?
 }
 
 extension NewsFeedArtist {

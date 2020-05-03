@@ -12,7 +12,19 @@ import Foundation
 final class NewsFeedViewModel: ObservableObject {
     
     // MARK: - Properties
-    @Published var favoriteArtists: [NewsFeedArtist]
+    @Published var favoriteArtists: [NewsFeedArtist] {
+        didSet {
+            favoriteArtists
+                .sort { (firstArtist, secondArtist) -> Bool in
+                    guard
+                        let firstLatestRelease = firstArtist.latestRelease,
+                        let secondLatestRelease = secondArtist.latestRelease
+                    else { return false }
+                    
+                    return firstLatestRelease.releaseDate > secondLatestRelease.releaseDate
+                }
+        }
+    }
  
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,68 +35,67 @@ final class NewsFeedViewModel: ObservableObject {
     
     // MARK: - Methods
     func fetchUserFavoriteArtists() {
-        favoriteArtists.removeAll()
-
-        DeezerService.shared
+        DeezerService
+            .shared
             .getUserFavoriteArtists(userId: 2828675864)
-            .map { $0.map { self.fetchLatestRelease(from: $0) } }
+            .map { $0.map { NewsFeedArtist(id: $0.id, name: $0.name, avatarPath: $0.avatarPath) } }
+            .replaceError(with: [])
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { (_) in
-                
-            }, receiveValue: { (publishers) in
-                var nbOfArtistsToDownload = publishers.count
-                var artistsDownloaded = [NewsFeedArtist]()
-                
-                publishers.forEach { [weak self] (publisher) in
-                    guard let self = self else { return }
-                    
-                    publisher.sink(receiveCompletion: { [weak self] (completion) in
-                        switch completion {
-                        case .failure:
-                            nbOfArtistsToDownload -= 1
-                            
-                            if nbOfArtistsToDownload == artistsDownloaded.count {
-                                self?.favoriteArtists.append(contentsOf: artistsDownloaded.sorted(by: { $0.latestRelease.releaseDate > $1.latestRelease.releaseDate }))
-                            }
-                        case .finished:
-                            break
-                        }
-                    }, receiveValue: { [weak self] (newsFeedArtist) in
-                        if let newsFeedArtist = newsFeedArtist {
-                            artistsDownloaded.append(newsFeedArtist)
-                        } else {
-                            nbOfArtistsToDownload -= 1
-                        }
-                        
-                        if nbOfArtistsToDownload == artistsDownloaded.count {
-                            self?.favoriteArtists.append(contentsOf: artistsDownloaded.sorted(by: { $0.latestRelease.releaseDate > $1.latestRelease.releaseDate }))
-                        }
-                    })
-                    .store(in: &self.cancellables)
-                }
-            })
+            .assign(to: \.favoriteArtists, on: self)
             .store(in: &cancellables)
     }
     
-    private func fetchLatestRelease(from artist: DeezerArtist) -> AnyPublisher<NewsFeedArtist?, Error> {
-        DeezerService.shared
+    func fetchLatestRelease(for artist: NewsFeedArtist) {
+        DeezerService
+            .shared
             .getArtistAlbums(artistId: artist.id)
-            .map { $0.min(by: { $0.releaseDate.toDate() ?? Date() > $1.releaseDate.toDate() ?? Date() }) }
-            .map { (deezerAlbum) in
-                guard
-                    let deezerAlbum = deezerAlbum,
-                    let albumReleaseDate = deezerAlbum.releaseDate.toDate(format: "yyyy-MM-dd")
-                else { return nil }
-                
-                return NewsFeedArtist(id: artist.id,
-                                      name: artist.name,
-                                      avatarPath: artist.avatarPath,
-                                      latestRelease: NewsFeedLatestRelease(id: deezerAlbum.id,
-                                                                           name: deezerAlbum.title,
-                                                                           posterPath: deezerAlbum.posterPath,
-                                                                           releaseDate: albumReleaseDate))
-            }
-            .eraseToAnyPublisher()
+            .replaceError(with: [])
+            .compactMap { self.latestReleasedAlbum(albums: $0) }
+            .compactMap { self.convert(album: $0) }
+            .map { self.create(artist: artist, latestRelease: $0) }
+            .receive(on: DispatchQueue.main)
+            .sink { self.replace(artist: $0) }
+            .store(in: &cancellables)
     }
+    
+    private func latestReleasedAlbum(albums: [DeezerAlbum]) -> DeezerAlbum? {
+        albums
+            .min { (firstAlbum, secondAlbum) -> Bool in
+                guard
+                    let firstAlbumReleaseDate = firstAlbum.releaseDate,
+                    let secondAlbumReleaseDate = secondAlbum.releaseDate
+                else { return false }
+                
+                return firstAlbumReleaseDate > secondAlbumReleaseDate
+            }
+    }
+    
+    private func convert(album: DeezerAlbum) -> NewsFeedLatestRelease? {
+        guard let releaseDate = album.releaseDate else { return nil }
         
+        return NewsFeedLatestRelease(id: album.id,
+                                     name: album.title,
+                                     posterPath: album.posterPath,
+                                     releaseDate: releaseDate)
+    }
+    
+    private func create(artist: NewsFeedArtist, latestRelease: NewsFeedLatestRelease) -> NewsFeedArtist {
+        var tempArtist = artist
+        tempArtist.latestRelease = latestRelease
+        
+        return tempArtist
+    }
+    
+    private func replace(artist: NewsFeedArtist) {
+        guard
+            let favoriteArtistIndex = favoriteArtists.firstIndex(where: { $0.id == artist.id }),
+            artist.latestRelease != nil
+        else { return }
+
+        var tempFavoriteArtits = favoriteArtists
+        tempFavoriteArtits[favoriteArtistIndex] = artist
+        
+        self.favoriteArtists = tempFavoriteArtits
+            
+    }
 }
