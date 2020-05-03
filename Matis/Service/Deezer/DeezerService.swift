@@ -13,7 +13,7 @@ final class DeezerService {
     // MARK: - Properties
     private let apiRequester = ApiRequester()
     
-    // MARK: - Methods
+    // MARK: - Methods    
     func getUserFavoriteArtists(userId: Int) -> AnyPublisher<[DeezerArtist], Error> {
         apiRequester.fetch(UserFavoriteArtistsEndpoint(), with: userId)
     }

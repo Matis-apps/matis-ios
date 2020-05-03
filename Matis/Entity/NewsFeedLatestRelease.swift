@@ -11,6 +11,7 @@ import Foundation
 struct NewsFeedLatestRelease: Identifiable {
     let id: Int
     let name: String
+    let posterPath: String
     let releaseDate: Date
     
     var daysBetweenReleaseDateAndNow: Int {
@@ -26,5 +27,6 @@ struct NewsFeedLatestRelease: Identifiable {
 extension NewsFeedLatestRelease {
     static let one = NewsFeedLatestRelease(id: 1,
                                            name: "Dune The Alliance EP",
+                                           posterPath: "https://cdns-images.dzcdn.net/images/cover/2114b69daf077725014eef1e11b88281/500x500-000000-80-0-0.jpg",
                                            releaseDate: Date())
 }

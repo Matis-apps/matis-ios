@@ -15,19 +15,12 @@ struct DeezerAlbumsData: Codable {
 struct DeezerAlbum: Codable {
     let id: Int
     let title: String
+    let posterPath: String
     let releaseDate: String
     
     enum CodingKeys: String, CodingKey {
         case id, title
+        case posterPath = "cover_big"
         case releaseDate = "release_date"
-    }
-}
-
-extension DeezerAlbum {
-    var releaseDateComputed: Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        return dateFormatter.date(from: releaseDate)
     }
 }

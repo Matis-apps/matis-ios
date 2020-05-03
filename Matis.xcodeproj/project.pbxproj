@@ -28,12 +28,13 @@
 		521F1C70245E059D00E2A7B1 /* NewsFeedArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C6F245E059D00E2A7B1 /* NewsFeedArtist.swift */; };
 		521F1C72245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C71245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift */; };
 		521F1C77245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */; };
-		521F1C7A245E158800E2A7B1 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C79245E158800E2A7B1 /* Date+Format.swift */; };
+		521F1C7A245E158800E2A7B1 /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C79245E158800E2A7B1 /* Date+ToString.swift */; };
 		521F1C7D245EC1DA00E2A7B1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C7C245EC1DA00E2A7B1 /* ImageLoader.swift */; };
 		521F1C80245EC57D00E2A7B1 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C7F245EC57D00E2A7B1 /* ImageService.swift */; };
 		521F1C83245EC5A400E2A7B1 /* ImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C82245EC5A400E2A7B1 /* ImageEndpoint.swift */; };
 		52258A44245EC74E00063825 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52258A43245EC74E00063825 /* WebImage.swift */; };
 		52258A46245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52258A45245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift */; };
+		524D923C245ECCE5005F5237 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D923B245ECCE5005F5237 /* String+ToDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,12 +61,13 @@
 		521F1C6F245E059D00E2A7B1 /* NewsFeedArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedArtist.swift; sourceTree = "<group>"; };
 		521F1C71245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedLatestRelease.swift; sourceTree = "<group>"; };
 		521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedArtistLatestReleaseComponent.swift; sourceTree = "<group>"; };
-		521F1C79245E158800E2A7B1 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		521F1C79245E158800E2A7B1 /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
 		521F1C7C245EC1DA00E2A7B1 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		521F1C7F245EC57D00E2A7B1 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		521F1C82245EC5A400E2A7B1 /* ImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndpoint.swift; sourceTree = "<group>"; };
 		52258A43245EC74E00063825 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
 		52258A45245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedUserProfileHeaderComponent.swift; sourceTree = "<group>"; };
+		524D923B245ECCE5005F5237 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +229,8 @@
 		521F1C78245E157500E2A7B1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				521F1C79245E158800E2A7B1 /* Date+Format.swift */,
+				521F1C79245E158800E2A7B1 /* Date+ToString.swift */,
+				524D923B245ECCE5005F5237 /* String+ToDate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -369,7 +372,8 @@
 				521F1C66245DFD3600E2A7B1 /* DeezerApiEndpoint.swift in Sources */,
 				52258A44245EC74E00063825 /* WebImage.swift in Sources */,
 				521F1C4F245DF77600E2A7B1 /* ApiRequester.swift in Sources */,
-				521F1C7A245E158800E2A7B1 /* Date+Format.swift in Sources */,
+				521F1C7A245E158800E2A7B1 /* Date+ToString.swift in Sources */,
+				524D923C245ECCE5005F5237 /* String+ToDate.swift in Sources */,
 				521F1C77245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift in Sources */,
 				521F1C51245DF77600E2A7B1 /* Request.swift in Sources */,
 				521F1C5E245DFBD800E2A7B1 /* DeezerArtist.swift in Sources */,

@@ -24,32 +24,68 @@ final class NewsFeedViewModel: ObservableObject {
     
     // MARK: - Methods
     func fetchUserFavoriteArtists() {
+        favoriteArtists.removeAll()
+
         deezerService
             .getUserFavoriteArtists(userId: 2828675864)
-            .replaceError(with: [])
-            .eraseToAnyPublisher()
-            .map {
-                $0
-                    .map { NewsFeedArtist(id: $0.id, name: $0.name, avatarPath: $0.avatarPath, latestRelease: nil) }
-                    .sorted(by: { $0.name < $1.name })
-            }
+            .map { $0.map { self.fetchLatestRelease(from: $0) } }
             .receive(on: DispatchQueue.main)
-            .assign(to: \.favoriteArtists, on: self)
+            .sink(receiveCompletion: { (_) in
+                
+            }, receiveValue: { (publishers) in
+                var nbOfArtistsToDownload = publishers.count
+                var artistsDownloaded = [NewsFeedArtist]()
+                
+                publishers.forEach { [weak self] (publisher) in
+                    guard let self = self else { return }
+                    
+                    publisher.sink(receiveCompletion: { [weak self] (completion) in
+                        switch completion {
+                        case .failure:
+                            nbOfArtistsToDownload -= 1
+                            
+                            if nbOfArtistsToDownload == artistsDownloaded.count {
+                                self?.favoriteArtists.append(contentsOf: artistsDownloaded.sorted(by: { $0.latestRelease.releaseDate > $1.latestRelease.releaseDate }))
+                            }
+                        case .finished:
+                            break
+                        }
+                    }, receiveValue: { [weak self] (newsFeedArtist) in
+                        if let newsFeedArtist = newsFeedArtist {
+                            artistsDownloaded.append(newsFeedArtist)
+                        } else {
+                            nbOfArtistsToDownload -= 1
+                        }
+                        
+                        if nbOfArtistsToDownload == artistsDownloaded.count {
+                            self?.favoriteArtists.append(contentsOf: artistsDownloaded.sorted(by: { $0.latestRelease.releaseDate > $1.latestRelease.releaseDate }))
+                        }
+                    })
+                    .store(in: &self.cancellables)
+                }
+            })
             .store(in: &cancellables)
     }
     
-//    func fetchLatestRelease(for artist: NewsFeedArtist) {
-//        guard let index = favoriteArtists.firstIndex(where: { $0.id == artist.id }) else { return }
-//
-//        deezerService
-//            .getArtistAlbums(artistId: artist.id)
-//            .replaceError(with: [])
-//            .eraseToAnyPublisher()
-//            .map { $0.min(by: { $0.releaseDateComputed ?? Date() > $1.releaseDateComputed ?? Date() }) }
-//            .map { $0 != nil ? NewsFeedLatestRelease(id: $0!.id, name: $0!.title, releaseDate: $0!.releaseDateComputed ?? Date()) : nil }
-//            .receive(on: DispatchQueue.main)
-//            .sink { self.favoriteArtists[index].latestRelease = $0 }
-//            .store(in: &cancellables)
-//    }
-    
+    private func fetchLatestRelease(from artist: DeezerArtist) -> AnyPublisher<NewsFeedArtist?, Error> {
+        deezerService
+            .getArtistAlbums(artistId: artist.id)
+            .map { $0.min(by: { $0.releaseDate.toDate() ?? Date() > $1.releaseDate.toDate() ?? Date() }) }
+            .map { (deezerAlbum) in
+                guard
+                    let deezerAlbum = deezerAlbum,
+                    let albumReleaseDate = deezerAlbum.releaseDate.toDate(format: "yyyy-MM-dd")
+                else { return nil }
+                
+                return NewsFeedArtist(id: artist.id,
+                                      name: artist.name,
+                                      avatarPath: artist.avatarPath,
+                                      latestRelease: NewsFeedLatestRelease(id: deezerAlbum.id,
+                                                                           name: deezerAlbum.title,
+                                                                           posterPath: deezerAlbum.posterPath,
+                                                                           releaseDate: albumReleaseDate))
+            }
+            .eraseToAnyPublisher()
+    }
+        
 }
