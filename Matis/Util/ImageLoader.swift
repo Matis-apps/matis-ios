@@ -59,7 +59,8 @@ final class ImageLoader: ObservableObject {
     private func loadImage() {
         guard let path = path, image == nil else { return }
         
-        cancellable = ImageService()
+        cancellable = ImageService
+            .shared
             .getImage(from: path)
             .receive(on: DispatchQueue.main)
             .replaceError(with: nil)

@@ -15,7 +15,6 @@ final class NewsFeedViewModel: ObservableObject {
     @Published var favoriteArtists: [NewsFeedArtist]
  
     private var cancellables = Set<AnyCancellable>()
-    private let deezerService = DeezerService()
     
     // MARK: - Lifecycle
     init(favoriteArtists: [NewsFeedArtist] = []) {
@@ -26,7 +25,7 @@ final class NewsFeedViewModel: ObservableObject {
     func fetchUserFavoriteArtists() {
         favoriteArtists.removeAll()
 
-        deezerService
+        DeezerService.shared
             .getUserFavoriteArtists(userId: 2828675864)
             .map { $0.map { self.fetchLatestRelease(from: $0) } }
             .receive(on: DispatchQueue.main)
@@ -68,7 +67,7 @@ final class NewsFeedViewModel: ObservableObject {
     }
     
     private func fetchLatestRelease(from artist: DeezerArtist) -> AnyPublisher<NewsFeedArtist?, Error> {
-        deezerService
+        DeezerService.shared
             .getArtistAlbums(artistId: artist.id)
             .map { $0.min(by: { $0.releaseDate.toDate() ?? Date() > $1.releaseDate.toDate() ?? Date() }) }
             .map { (deezerAlbum) in

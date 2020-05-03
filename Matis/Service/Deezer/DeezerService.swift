@@ -11,9 +11,14 @@ import Combine
 final class DeezerService {
     
     // MARK: - Properties
+    static let shared = DeezerService()
+    
     private let apiRequester = ApiRequester()
     
-    // MARK: - Methods    
+    // MARK: - Lifecycle
+    private init() { }
+    
+    // MARK: - Methods
     func getUserFavoriteArtists(userId: Int) -> AnyPublisher<[DeezerArtist], Error> {
         apiRequester.fetch(UserFavoriteArtistsEndpoint(), with: userId)
     }

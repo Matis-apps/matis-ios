@@ -12,7 +12,12 @@ import UIKit
 final class ImageService {
     
     // MARK: - Properties
+    static let shared = ImageService()
+    
     private let apiRequester = ApiRequester()
+    
+    // MARK: - Lifecycle
+    private init() { }
     
     // MARK: - Methods
     func getImage(from path: String) -> AnyPublisher<UIImage?, Error> {
