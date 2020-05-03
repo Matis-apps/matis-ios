@@ -13,4 +13,10 @@ struct DeezerArtistsData: Codable {
 struct DeezerArtist: Codable {
     let id: Int
     let name: String
+    let avatarPath: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name
+        case avatarPath = "picture_big"
+    }
 }

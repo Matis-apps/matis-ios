@@ -19,7 +19,7 @@ struct NewsFeedView: View {
             List(newsFeedViewModel.favoriteArtists) {
                 NewsFeedArtistLatestReleaseComponent(artist: $0)
             }
-            .navigationBarTitle("News feed")
+            .navigationBarTitle("Dernières sorties")
         }
         .onAppear { self.newsFeedViewModel.fetchUserFavoriteArtists() }
     }

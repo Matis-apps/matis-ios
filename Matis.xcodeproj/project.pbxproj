@@ -29,6 +29,11 @@
 		521F1C72245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C71245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift */; };
 		521F1C77245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */; };
 		521F1C7A245E158800E2A7B1 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C79245E158800E2A7B1 /* Date+Format.swift */; };
+		521F1C7D245EC1DA00E2A7B1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C7C245EC1DA00E2A7B1 /* ImageLoader.swift */; };
+		521F1C80245EC57D00E2A7B1 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C7F245EC57D00E2A7B1 /* ImageService.swift */; };
+		521F1C83245EC5A400E2A7B1 /* ImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C82245EC5A400E2A7B1 /* ImageEndpoint.swift */; };
+		52258A44245EC74E00063825 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52258A43245EC74E00063825 /* WebImage.swift */; };
+		52258A46245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52258A45245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +61,11 @@
 		521F1C71245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedLatestRelease.swift; sourceTree = "<group>"; };
 		521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedArtistLatestReleaseComponent.swift; sourceTree = "<group>"; };
 		521F1C79245E158800E2A7B1 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		521F1C7C245EC1DA00E2A7B1 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		521F1C7F245EC57D00E2A7B1 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		521F1C82245EC5A400E2A7B1 /* ImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndpoint.swift; sourceTree = "<group>"; };
+		52258A43245EC74E00063825 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
+		52258A45245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedUserProfileHeaderComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 				521F1C2E245DF5C400E2A7B1 /* AppDelegate.swift */,
 				521F1C30245DF5C400E2A7B1 /* SceneDelegate.swift */,
 				521F1C47245DF76100E2A7B1 /* Core */,
+				521F1C7B245EC1C900E2A7B1 /* Util */,
 				521F1C78245E157500E2A7B1 /* Extension */,
 				521F1C54245DFAAF00E2A7B1 /* Service */,
 				521F1C5B245DFBBA00E2A7B1 /* Entity */,
@@ -152,6 +163,7 @@
 		521F1C54245DFAAF00E2A7B1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				521F1C7E245EC57300E2A7B1 /* Image */,
 				521F1C55245DFAC800E2A7B1 /* Deezer */,
 			);
 			path = Service;
@@ -206,7 +218,8 @@
 		521F1C73245E088F00E2A7B1 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */,
+				52258A47245EC90000063825 /* NewsFeed */,
+				52258A43245EC74E00063825 /* WebImage.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -217,6 +230,40 @@
 				521F1C79245E158800E2A7B1 /* Date+Format.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		521F1C7B245EC1C900E2A7B1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				521F1C7C245EC1DA00E2A7B1 /* ImageLoader.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		521F1C7E245EC57300E2A7B1 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				521F1C81245EC59900E2A7B1 /* Endpoint */,
+				521F1C7F245EC57D00E2A7B1 /* ImageService.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		521F1C81245EC59900E2A7B1 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				521F1C82245EC5A400E2A7B1 /* ImageEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		52258A47245EC90000063825 /* NewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				521F1C76245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift */,
+				52258A45245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift */,
+			);
+			path = NewsFeed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,12 +359,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52258A46245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift in Sources */,
 				521F1C6E245E051100E2A7B1 /* ArtistAlbumsEndpoint.swift in Sources */,
 				521F1C4E245DF77600E2A7B1 /* BaseRequest.swift in Sources */,
+				521F1C7D245EC1DA00E2A7B1 /* ImageLoader.swift in Sources */,
 				521F1C61245DFC7D00E2A7B1 /* UserFavoriteArtistsEndpoint.swift in Sources */,
 				521F1C2F245DF5C400E2A7B1 /* AppDelegate.swift in Sources */,
 				521F1C50245DF77600E2A7B1 /* Reachability.swift in Sources */,
 				521F1C66245DFD3600E2A7B1 /* DeezerApiEndpoint.swift in Sources */,
+				52258A44245EC74E00063825 /* WebImage.swift in Sources */,
 				521F1C4F245DF77600E2A7B1 /* ApiRequester.swift in Sources */,
 				521F1C7A245E158800E2A7B1 /* Date+Format.swift in Sources */,
 				521F1C77245E08AD00E2A7B1 /* NewsFeedArtistLatestReleaseComponent.swift in Sources */,
@@ -327,6 +377,8 @@
 				521F1C6C245E049C00E2A7B1 /* DeezerAlbum.swift in Sources */,
 				521F1C6A245E010200E2A7B1 /* NewsFeedViewModel.swift in Sources */,
 				521F1C5A245DFAF100E2A7B1 /* DeezerService.swift in Sources */,
+				521F1C83245EC5A400E2A7B1 /* ImageEndpoint.swift in Sources */,
+				521F1C80245EC57D00E2A7B1 /* ImageService.swift in Sources */,
 				521F1C31245DF5C400E2A7B1 /* SceneDelegate.swift in Sources */,
 				521F1C33245DF5C400E2A7B1 /* NewsFeedView.swift in Sources */,
 				521F1C70245E059D00E2A7B1 /* NewsFeedArtist.swift in Sources */,
