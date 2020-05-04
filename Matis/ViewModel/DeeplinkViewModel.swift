@@ -14,7 +14,7 @@ enum DeeplinkSource {
 }
 
 enum DeeplinkRoute {
-    case latestRelease(id: Int, source: DeeplinkSource)
+    case album(id: Int, source: DeeplinkSource)
 }
 
 final class DeeplinkViewModel: ObservableObject {
@@ -22,7 +22,7 @@ final class DeeplinkViewModel: ObservableObject {
     // MARK: - Methods
     func canOpen(route: DeeplinkRoute) -> Bool {
         switch route {
-        case let .latestRelease(_, source):
+        case let .album(_, source):
             switch source {
             case .deezer:
                 guard let url = createDeeplinkUrl(from: route) else { return false }
@@ -40,7 +40,7 @@ final class DeeplinkViewModel: ObservableObject {
     
     private func createDeeplinkUrl(from route: DeeplinkRoute) -> URL? {
         switch route {
-        case let .latestRelease(id, source):
+        case let .album(id, source):
             switch source {
             case .deezer:
                 return URL(string: "deezer://www.deezer.com/album/\(id)")

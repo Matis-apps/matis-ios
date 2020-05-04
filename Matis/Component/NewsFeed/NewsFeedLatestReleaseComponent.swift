@@ -16,7 +16,7 @@ struct NewsFeedLatestReleaseComponent: View {
     var latestRelease: NewsFeedLatestRelease
     
     private var deezerDeeplinkRoute: DeeplinkRoute {
-        .latestRelease(id: latestRelease.id, source: .deezer)
+        .album(id: latestRelease.id, source: .deezer)
     }
     
     // MARK: - Body
