@@ -21,8 +21,8 @@ struct NewsFeedComponent: View {
             NewsFeedUserProfileHeaderComponent(avatarPath: artist.avatarPath,
                                                name: artist.name)
             
-            artist.latestRelease.map {
-                NewsFeedLatestReleaseComponent(latestRelease: $0)
+            artist.latestRelease.map { (latestRelease) in
+                NewsFeedLatestReleaseComponent(latestRelease: latestRelease)
             }
         }
         .padding()

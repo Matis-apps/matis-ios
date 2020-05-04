@@ -36,6 +36,7 @@
 		52258A46245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52258A45245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift */; };
 		524D923C245ECCE5005F5237 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D923B245ECCE5005F5237 /* String+ToDate.swift */; };
 		52AD15C6245F5E3900C83FCA /* NewsFeedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD15C5245F5E3900C83FCA /* NewsFeedComponent.swift */; };
+		52F88E07246027780004B1EC /* DeeplinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E06246027780004B1EC /* DeeplinkViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		52258A45245EC8B200063825 /* NewsFeedUserProfileHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedUserProfileHeaderComponent.swift; sourceTree = "<group>"; };
 		524D923B245ECCE5005F5237 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
 		52AD15C5245F5E3900C83FCA /* NewsFeedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedComponent.swift; sourceTree = "<group>"; };
+		52F88E06246027780004B1EC /* DeeplinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				521F1C69245E010200E2A7B1 /* NewsFeedViewModel.swift */,
+				52F88E06246027780004B1EC /* DeeplinkViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				521F1C80245EC57D00E2A7B1 /* ImageService.swift in Sources */,
 				521F1C31245DF5C400E2A7B1 /* SceneDelegate.swift in Sources */,
 				521F1C33245DF5C400E2A7B1 /* NewsFeedView.swift in Sources */,
+				52F88E07246027780004B1EC /* DeeplinkViewModel.swift in Sources */,
 				521F1C70245E059D00E2A7B1 /* NewsFeedArtist.swift in Sources */,
 				521F1C52245DF77600E2A7B1 /* ApiEndpoint.swift in Sources */,
 			);
