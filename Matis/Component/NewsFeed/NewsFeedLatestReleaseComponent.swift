@@ -19,9 +19,7 @@ struct NewsFeedLatestReleaseComponent: View {
             Text("Dernière sortie")
                 .font(.subheadline)
             
-            Text("Il y a \(latestRelease.daysBetweenReleaseDateAndNow) jours")
-                .font(.caption)
-                .foregroundColor(.gray)
+            releaseDateMake()
             
             Text(latestRelease.name)
                 .font(.headline)
@@ -30,6 +28,16 @@ struct NewsFeedLatestReleaseComponent: View {
                      size: CGSize(width: 150, height: 150))
                 .cornerRadius(4)
         }
+    }
+    
+    private func releaseDateMake() -> some View {
+        let releaseDateString = latestRelease.daysBetweenReleaseDateAndNow <= 0 ? "Dans" : "Il y a"
+        let daysString = latestRelease.daysBetweenReleaseDateAndNow == 0 ? "jour" : "jours"
+        let days = abs(latestRelease.daysBetweenReleaseDateAndNow)
+        
+        return Text("\(releaseDateString) \(days) \(daysString)")
+            .font(.caption)
+            .foregroundColor(.gray)
     }
 }
 

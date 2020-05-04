@@ -11,7 +11,7 @@ import Foundation
 struct NewsFeedLatestRelease: Identifiable {
     let id: Int
     let name: String
-    let posterPath: String
+    let posterPath: String?
     let releaseDate: Date
     
     var daysBetweenReleaseDateAndNow: Int {

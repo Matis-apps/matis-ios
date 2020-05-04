@@ -15,7 +15,7 @@ struct DeezerAlbumsData: Codable {
 struct DeezerAlbum: Codable {
     let id: Int
     let title: String
-    let posterPath: String
+    let posterPath: String?
     let releaseDateString: String
     
     enum CodingKeys: String, CodingKey {
