@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NewsFeedUserProfileHeaderComponent: View {
     
+    // MARK: - Properties
     var avatarPath: String?
     var name: String
     
@@ -18,9 +19,10 @@ struct NewsFeedUserProfileHeaderComponent: View {
         HStack {
             WebImage(imageLoader: ImageLoaderCache.shared.loaderFor(path: avatarPath),
                      size: CGSize(width: 40, height: 40))
-                .cornerRadius(4)
+                .cornerRadius(20)
             
             Text(name)
+                .fontWeight(.semibold)
             
             Spacer()
         }

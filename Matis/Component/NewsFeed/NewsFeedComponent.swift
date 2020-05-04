@@ -20,9 +20,9 @@ struct NewsFeedComponent: View {
         VStack(alignment: .leading) {
             NewsFeedUserProfileHeaderComponent(avatarPath: artist.avatarPath,
                                                name: artist.name)
-            
-            artist.latestRelease.map { (latestRelease) in
-                NewsFeedLatestReleaseComponent(latestRelease: latestRelease)
+
+            artist.latestRelease.map {
+                NewsFeedLatestReleaseComponent(latestRelease: $0)
             }
         }
         .padding()

@@ -21,29 +21,25 @@ struct NewsFeedLatestReleaseComponent: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Dernière sortie")
-                .font(.subheadline)
+        HStack(alignment: .center) {
+            latestRelease.posterPath.map { (posterPath) in
+                WebImage(imageLoader: ImageLoaderCache.shared.loaderFor(path: posterPath),
+                         size: CGSize(width: 150, height: 150))
+                    .cornerRadius(4)
+            }
             
-            releaseDateMake()
-            
-            Text(latestRelease.name)
-                .font(.headline)
-            
-            HStack {
-                latestRelease.posterPath.map { (posterPath) in
-                    WebImage(imageLoader: ImageLoaderCache.shared.loaderFor(path: posterPath),
-                             size: CGSize(width: 150, height: 150))
-                        .cornerRadius(4)
-                }
+            VStack(alignment: .leading) {
+                Text(latestRelease.name)
+                    .font(.headline)
+                
+                releaseDateMake()
                 
                 if deeplinkViewModel.canOpen(route: deezerDeeplinkRoute) {
                     Button(action: {
                         self.deeplinkViewModel.open(route: self.deezerDeeplinkRoute)
                     }, label: {
-                        Text("Ouvrir sur Deezer")
+                        OpenDeezerComponent()
                     })
-                    .frame(minHeight: 44)
                 }
             }
         }
