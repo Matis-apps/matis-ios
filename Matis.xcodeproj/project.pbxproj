@@ -38,6 +38,7 @@
 		52AD15C6245F5E3900C83FCA /* NewsFeedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD15C5245F5E3900C83FCA /* NewsFeedComponent.swift */; };
 		52F88E07246027780004B1EC /* DeeplinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E06246027780004B1EC /* DeeplinkViewModel.swift */; };
 		52F88E09246035DD0004B1EC /* OpenDeezerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E08246035DD0004B1EC /* OpenDeezerComponent.swift */; };
+		52F88E1024603ADE0004B1EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E0F24603ADE0004B1EC /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		52AD15C5245F5E3900C83FCA /* NewsFeedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedComponent.swift; sourceTree = "<group>"; };
 		52F88E06246027780004B1EC /* DeeplinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkViewModel.swift; sourceTree = "<group>"; };
 		52F88E08246035DD0004B1EC /* OpenDeezerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDeezerComponent.swift; sourceTree = "<group>"; };
+		52F88E0F24603ADE0004B1EC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			children = (
 				521F1C79245E158800E2A7B1 /* Date+ToString.swift */,
 				524D923B245ECCE5005F5237 /* String+ToDate.swift */,
+				52F88E0F24603ADE0004B1EC /* Color.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				521F1C51245DF77600E2A7B1 /* Request.swift in Sources */,
 				521F1C5E245DFBD800E2A7B1 /* DeezerArtist.swift in Sources */,
 				521F1C72245E06FA00E2A7B1 /* NewsFeedLatestRelease.swift in Sources */,
+				52F88E1024603ADE0004B1EC /* Color.swift in Sources */,
 				521F1C6C245E049C00E2A7B1 /* DeezerAlbum.swift in Sources */,
 				521F1C6A245E010200E2A7B1 /* NewsFeedViewModel.swift in Sources */,
 				521F1C5A245DFAF100E2A7B1 /* DeezerService.swift in Sources */,

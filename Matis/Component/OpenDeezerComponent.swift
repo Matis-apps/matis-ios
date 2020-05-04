@@ -12,14 +12,14 @@ struct OpenDeezerComponent: View {
     var body: some View {
         HStack(alignment: .center) {
             Image("deezer_logo_white")
-            .resizable()
+                .resizable()
                 .aspectRatio(contentMode: .fit)
-            .frame(height: 16)
+                .frame(height: 16)
         }
         .foregroundColor(.white)
         .padding()
         .frame(minHeight: 44)
-        .background(Color.black)
+        .background(Color.pink)
         .cornerRadius(8)
     }
 }
