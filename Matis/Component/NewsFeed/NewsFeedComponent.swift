@@ -26,6 +26,10 @@ struct NewsFeedComponent: View {
             }
         }
         .padding()
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(8)
+        .padding(.horizontal)
+        .padding(.vertical, 4)
         .onAppear {
             if self.artist.latestRelease == nil {
                 self.newsFeedViewModel.fetchLatestRelease(for: self.artist)
