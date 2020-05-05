@@ -83,6 +83,7 @@ final class ApiRequester {
                     
                 return parsedResponse
             }
+            .retry(max: 5, interval: .seconds(2))
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

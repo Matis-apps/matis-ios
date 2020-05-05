@@ -38,6 +38,7 @@
 		52AD15C6245F5E3900C83FCA /* NewsFeedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD15C5245F5E3900C83FCA /* NewsFeedComponent.swift */; };
 		52C583D62461F9AF002BFBCD /* DeezerPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583D52461F9AF002BFBCD /* DeezerPlaylist.swift */; };
 		52C583D82461FA41002BFBCD /* UserPlaylistsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583D72461FA41002BFBCD /* UserPlaylistsEndpoint.swift */; };
+		52C583DD24620082002BFBCD /* Publisher+RetryAfter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583DC24620082002BFBCD /* Publisher+RetryAfter.swift */; };
 		52F88E07246027780004B1EC /* DeeplinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E06246027780004B1EC /* DeeplinkViewModel.swift */; };
 		52F88E09246035DD0004B1EC /* OpenDeezerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E08246035DD0004B1EC /* OpenDeezerComponent.swift */; };
 		52F88E1024603ADE0004B1EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E0F24603ADE0004B1EC /* Color.swift */; };
@@ -77,6 +78,7 @@
 		52AD15C5245F5E3900C83FCA /* NewsFeedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedComponent.swift; sourceTree = "<group>"; };
 		52C583D52461F9AF002BFBCD /* DeezerPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeezerPlaylist.swift; sourceTree = "<group>"; };
 		52C583D72461FA41002BFBCD /* UserPlaylistsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlaylistsEndpoint.swift; sourceTree = "<group>"; };
+		52C583DC24620082002BFBCD /* Publisher+RetryAfter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+RetryAfter.swift"; sourceTree = "<group>"; };
 		52F88E06246027780004B1EC /* DeeplinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkViewModel.swift; sourceTree = "<group>"; };
 		52F88E08246035DD0004B1EC /* OpenDeezerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDeezerComponent.swift; sourceTree = "<group>"; };
 		52F88E0F24603ADE0004B1EC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				521F1C79245E158800E2A7B1 /* Date+ToString.swift */,
 				524D923B245ECCE5005F5237 /* String+ToDate.swift */,
 				52F88E0F24603ADE0004B1EC /* Color.swift */,
+				52C583DC24620082002BFBCD /* Publisher+RetryAfter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				521F1C6C245E049C00E2A7B1 /* DeezerAlbum.swift in Sources */,
 				521F1C6A245E010200E2A7B1 /* NewsFeedViewModel.swift in Sources */,
 				521F1C5A245DFAF100E2A7B1 /* DeezerService.swift in Sources */,
+				52C583DD24620082002BFBCD /* Publisher+RetryAfter.swift in Sources */,
 				521F1C83245EC5A400E2A7B1 /* ImageEndpoint.swift in Sources */,
 				521F1C80245EC57D00E2A7B1 /* ImageService.swift in Sources */,
 				52F88E09246035DD0004B1EC /* OpenDeezerComponent.swift in Sources */,
