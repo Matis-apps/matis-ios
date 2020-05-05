@@ -16,6 +16,7 @@ final class UserFavoriteArtistsEndpoint: DeezerApiEndpoint, ApiEndpoint {
     // MARK: - Methods
     func buildRequest(parameters: UserFavoriteArtistsEndpoint.RequestDataType) throws -> Request {
         try buildRequest(method: "user/\(parameters)/artists")
+            .addQueryParameters(parameters: ["limit": 100])
     }
     
     func parseResponse(data: Data) throws -> UserFavoriteArtistsEndpoint.ResponseDataType {

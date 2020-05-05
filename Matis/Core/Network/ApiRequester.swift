@@ -65,7 +65,7 @@ final class ApiRequester {
             return Fail(error: ApiRequesterError.failedToBuildRequest)
                 .eraseToAnyPublisher()
         }
-        
+                
         return urlSession
             .dataTaskPublisher(for: urlRequest)
             .tryMap { (data, response) in

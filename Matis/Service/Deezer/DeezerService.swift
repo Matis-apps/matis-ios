@@ -27,4 +27,8 @@ final class DeezerService {
         apiRequester.fetch(ArtistAlbumsEndpoint(), with: artistId)
     }
     
+    func getUserPlaylists(userId: Int) -> AnyPublisher<[DeezerPlaylist], Error> {
+        apiRequester.fetch(UserPlaylistsEndpoint(), with: userId)
+    }
+    
 }

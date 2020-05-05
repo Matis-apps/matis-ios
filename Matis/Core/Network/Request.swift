@@ -25,7 +25,7 @@ protocol Request {
 
 extension URLRequest {
     
-    mutating func addQueryParameters(parameters: [String: String]) {
+    mutating func addQueryParameters(parameters: [String: Any]) {
         guard
             !parameters.isEmpty,
             let stringUrl = url?.absoluteString,
@@ -35,7 +35,11 @@ extension URLRequest {
         components.queryItems = components.queryItems ?? []
 
         for key in parameters.keys.sorted(by: <) {
-            components.queryItems?.append(URLQueryItem(name: key, value: parameters[key]))
+            let value = "\(parameters[key] ?? "")"
+            
+            if !value.isEmpty {
+                components.queryItems?.append(URLQueryItem(name: key, value: value))
+            }
         }
 
         url = components.url

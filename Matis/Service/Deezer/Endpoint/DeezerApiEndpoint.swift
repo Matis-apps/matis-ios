@@ -9,7 +9,7 @@
 class DeezerApiEndpoint {
     
     // MARK: - Methods
-    func buildRequest(method: String) throws -> Request {
+    func buildRequest(method: String) throws -> BaseRequest {
         let stringUrl = "https://api.deezer.com/\(method)"
         
         guard let request = BaseRequest(baseStringUrl: stringUrl) else {

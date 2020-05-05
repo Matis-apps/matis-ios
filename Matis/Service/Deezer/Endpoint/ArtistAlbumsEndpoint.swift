@@ -16,6 +16,7 @@ final class ArtistAlbumsEndpoint: DeezerApiEndpoint, ApiEndpoint {
     // MARK: - Methods
     func buildRequest(parameters: ArtistAlbumsEndpoint.RequestDataType) throws -> Request {
         try buildRequest(method: "artist/\(parameters)/albums")
+            .addQueryParameters(parameters: ["limit": 100])
     }
     
     func parseResponse(data: Data) throws -> ArtistAlbumsEndpoint.ResponseDataType {

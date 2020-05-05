@@ -58,6 +58,17 @@ final class NewsFeedViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    func fetchUserPlaylists() {
+        DeezerService
+            .shared
+            .getUserPlaylists(userId: 2828675864)
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .sink { _ in }
+            .store(in: &cancellables)
+    }
+    
+    // MARK: - Private methods
     private func latestReleasedAlbum(albums: [DeezerAlbum]) -> DeezerAlbum? {
         albums
             .min { (firstAlbum, secondAlbum) -> Bool in

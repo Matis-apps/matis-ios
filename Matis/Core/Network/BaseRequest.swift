@@ -26,4 +26,11 @@ class BaseRequest: Request {
         self.request = URLRequest(url: url)
     }
     
+    // MARK: - Methods
+    func addQueryParameters(parameters: [String: Any]) -> Self {
+        request.addQueryParameters(parameters: parameters)
+        
+        return self
+    }
+    
 }

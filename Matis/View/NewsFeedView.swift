@@ -31,7 +31,10 @@ struct NewsFeedView: View {
             }
             .navigationBarTitle("Dernières sorties")
         }
-        .onAppear { self.newsFeedViewModel.fetchUserFavoriteArtists() }
+        .onAppear {
+            self.newsFeedViewModel.fetchUserFavoriteArtists()
+            self.newsFeedViewModel.fetchUserPlaylists()
+        }
     }
 }
 
