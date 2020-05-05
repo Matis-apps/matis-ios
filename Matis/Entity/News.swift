@@ -16,7 +16,7 @@ struct News: Identifiable {
     let udpatedAt: Date
 }
 
-struct NewsCreator: Identifiable {
+struct NewsCreator {
     let id: Int
     let name: String
     let avatarPath: String?

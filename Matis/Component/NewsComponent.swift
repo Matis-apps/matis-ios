@@ -15,24 +15,14 @@ struct NewsComponent: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            VStack(alignment: .leading, spacing: 8) {
-                NewsHeaderComponent(avatarPath: news.creator.avatarPath,
-                                    creatorName: news.creator.name,
-                                    date: news.udpatedAt)
-                     
-                Text(news.title)
-                    .font(.subheadline)
-            }
-            .padding(.horizontal, 16)
-            
-            news.posterPath.map { (posterPath) in
-                WebImage(imageLoader: ImageLoaderCache.shared.loaderFor(path: posterPath))
-                    .aspectRatio(contentMode: .fit)
-            }
+        VStack(alignment: .leading, spacing: 8) {
+            NewsHeaderComponent(avatarPath: news.creator.avatarPath,
+                                creatorName: news.creator.name,
+                                date: news.udpatedAt)
+                 
+            NewsContentComponent(title: news.title,
+                                 posterPath: news.posterPath)
         }
-        
         .padding(.bottom, 16)
     }
 }

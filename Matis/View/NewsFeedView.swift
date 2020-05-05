@@ -16,30 +16,17 @@ struct NewsFeedView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-            ZStack {
-                if !newsViewModel.news.isEmpty {
-                    ScrollView(.vertical, showsIndicators: true) {
-                        VStack(alignment: .leading) {
-                            ForEach(newsViewModel.news) {
-                                NewsComponent(news: $0)
-                            }
-                        }
-                    }
-                } else {
-                    Text("Chargement ...")
+            if !newsViewModel.news.isEmpty {
+                List(newsViewModel.news) {
+                    NewsComponent(news: $0)
                 }
+                .navigationBarTitle("Fil d'actualités")
+            } else {
+                Text("Chargement ...")
             }
-            .navigationBarTitle("Fil d'actualités")
         }
         .onAppear {
             self.newsViewModel.fetchNews()
         }
-    }
-}
-
-struct NewsFeedView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsFeedView()
-            .environmentObject(NewsViewModel(news: News.list))
     }
 }
