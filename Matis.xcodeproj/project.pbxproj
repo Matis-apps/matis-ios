@@ -31,10 +31,12 @@
 		521F1C83245EC5A400E2A7B1 /* ImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C82245EC5A400E2A7B1 /* ImageEndpoint.swift */; };
 		52258A44245EC74E00063825 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52258A43245EC74E00063825 /* WebImage.swift */; };
 		524D923C245ECCE5005F5237 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D923B245ECCE5005F5237 /* String+ToDate.swift */; };
+		52AFC27A24620B090067A9FC /* NewsHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC27924620B090067A9FC /* NewsHeaderComponent.swift */; };
 		52C583D62461F9AF002BFBCD /* DeezerPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583D52461F9AF002BFBCD /* DeezerPlaylist.swift */; };
 		52C583D82461FA41002BFBCD /* UserPlaylistsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583D72461FA41002BFBCD /* UserPlaylistsEndpoint.swift */; };
 		52C583DD24620082002BFBCD /* Publisher+RetryAfter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583DC24620082002BFBCD /* Publisher+RetryAfter.swift */; };
 		52C583E22462035C002BFBCD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583E12462035C002BFBCD /* News.swift */; };
+		52C583E424620937002BFBCD /* NewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C583E324620937002BFBCD /* NewsComponent.swift */; };
 		52F88E07246027780004B1EC /* DeeplinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E06246027780004B1EC /* DeeplinkViewModel.swift */; };
 		52F88E1024603ADE0004B1EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F88E0F24603ADE0004B1EC /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -66,10 +68,12 @@
 		521F1C82245EC5A400E2A7B1 /* ImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndpoint.swift; sourceTree = "<group>"; };
 		52258A43245EC74E00063825 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
 		524D923B245ECCE5005F5237 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
+		52AFC27924620B090067A9FC /* NewsHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderComponent.swift; sourceTree = "<group>"; };
 		52C583D52461F9AF002BFBCD /* DeezerPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeezerPlaylist.swift; sourceTree = "<group>"; };
 		52C583D72461FA41002BFBCD /* UserPlaylistsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlaylistsEndpoint.swift; sourceTree = "<group>"; };
 		52C583DC24620082002BFBCD /* Publisher+RetryAfter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+RetryAfter.swift"; sourceTree = "<group>"; };
 		52C583E12462035C002BFBCD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		52C583E324620937002BFBCD /* NewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsComponent.swift; sourceTree = "<group>"; };
 		52F88E06246027780004B1EC /* DeeplinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkViewModel.swift; sourceTree = "<group>"; };
 		52F88E0F24603ADE0004B1EC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				52258A43245EC74E00063825 /* WebImage.swift */,
+				52C583E324620937002BFBCD /* NewsComponent.swift */,
+				52AFC27924620B090067A9FC /* NewsHeaderComponent.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -370,12 +376,14 @@
 				521F1C61245DFC7D00E2A7B1 /* UserFavoriteArtistsEndpoint.swift in Sources */,
 				52C583D62461F9AF002BFBCD /* DeezerPlaylist.swift in Sources */,
 				521F1C2F245DF5C400E2A7B1 /* AppDelegate.swift in Sources */,
+				52C583E424620937002BFBCD /* NewsComponent.swift in Sources */,
 				521F1C50245DF77600E2A7B1 /* Reachability.swift in Sources */,
 				521F1C66245DFD3600E2A7B1 /* DeezerApiEndpoint.swift in Sources */,
 				52258A44245EC74E00063825 /* WebImage.swift in Sources */,
 				521F1C4F245DF77600E2A7B1 /* ApiRequester.swift in Sources */,
 				521F1C7A245E158800E2A7B1 /* Date+ToString.swift in Sources */,
 				524D923C245ECCE5005F5237 /* String+ToDate.swift in Sources */,
+				52AFC27A24620B090067A9FC /* NewsHeaderComponent.swift in Sources */,
 				52C583E22462035C002BFBCD /* News.swift in Sources */,
 				521F1C51245DF77600E2A7B1 /* Request.swift in Sources */,
 				521F1C5E245DFBD800E2A7B1 /* DeezerArtist.swift in Sources */,

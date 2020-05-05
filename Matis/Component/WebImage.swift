@@ -13,7 +13,7 @@ struct WebImage: View {
     // MARK: - Properties
     @ObservedObject var imageLoader: ImageLoader
     @State private var isLoaded: Bool = false
-    let size: CGSize
+    var size: CGSize?
     
     // MARK: - Body
     var body: some View {
@@ -22,7 +22,7 @@ struct WebImage: View {
                 Image(uiImage: self.imageLoader.image!)
                     .resizable()
                     .renderingMode(.original)
-                    .frame(width: size.width, height: size.height)
+                    .frame(width: size?.width, height: size?.height)
                     .opacity(isLoaded ? 1 : 0.1)
                     .animation(.easeInOut)
                     .onAppear { self.isLoaded = true }
@@ -30,7 +30,7 @@ struct WebImage: View {
                 Rectangle()
                 .foregroundColor(.gray)
                 .cornerRadius(4)
-                .frame(width: size.width, height: size.height)
+                .frame(width: size?.width, height: size?.height)
                 .opacity(0.3)
             }
          }
@@ -39,7 +39,7 @@ struct WebImage: View {
 
 struct WebImage_Previews: PreviewProvider {
     static var previews: some View {
-        WebImage(imageLoader: ImageLoader(path: nil),
+        WebImage(imageLoader: ImageLoaderCache.shared.loaderFor(path: NewsCreator.one.avatarPath),
                  size: CGSize(width: 100, height: 100))
     }
 }

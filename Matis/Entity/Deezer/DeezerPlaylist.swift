@@ -6,6 +6,8 @@
 //  Copyright © 2020 Matis. All rights reserved.
 //
 
+import Foundation
+
 struct DeezerPlaylistsData: Codable {
     let data: [DeezerPlaylist]
 }
@@ -17,6 +19,10 @@ struct DeezerPlaylist: Codable {
     let updatedAt: Double
     let creator: DeezerPlaylistCreator
 
+    var updatedAtDate: Date {
+        Date(timeIntervalSince1970: updatedAt)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id, title, creator
         case posterPath = "picture_big"

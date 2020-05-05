@@ -21,7 +21,7 @@ struct NewsFeedView: View {
                     ScrollView(.vertical, showsIndicators: true) {
                         VStack(alignment: .leading) {
                             ForEach(newsViewModel.news) {
-                                Text("\($0.creator.name)")
+                                NewsComponent(news: $0)
                             }
                         }
                     }
