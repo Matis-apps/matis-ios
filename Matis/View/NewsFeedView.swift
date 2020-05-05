@@ -11,17 +11,17 @@ import SwiftUI
 struct NewsFeedView: View {
     
     // MARK: - Properties
-    @EnvironmentObject private var newsFeedViewModel: NewsFeedViewModel
+    @EnvironmentObject private var newsViewModel: NewsViewModel
     
     // MARK: - Body
     var body: some View {
         NavigationView {
             ZStack {
-                if !newsFeedViewModel.favoriteArtists.isEmpty {
+                if !newsViewModel.news.isEmpty {
                     ScrollView(.vertical, showsIndicators: true) {
                         VStack(alignment: .leading) {
-                            ForEach(newsFeedViewModel.favoriteArtists) {
-                                NewsFeedComponent(artist: $0)
+                            ForEach(newsViewModel.news) {
+                                Text("\($0.creator.name)")
                             }
                         }
                     }
@@ -29,11 +29,10 @@ struct NewsFeedView: View {
                     Text("Chargement ...")
                 }
             }
-            .navigationBarTitle("Dernières sorties")
+            .navigationBarTitle("Fil d'actualités")
         }
         .onAppear {
-            self.newsFeedViewModel.fetchUserFavoriteArtists()
-            self.newsFeedViewModel.fetchUserPlaylists()
+            self.newsViewModel.fetchNews()
         }
     }
 }
@@ -41,6 +40,6 @@ struct NewsFeedView: View {
 struct NewsFeedView_Previews: PreviewProvider {
     static var previews: some View {
         NewsFeedView()
-            .environmentObject(NewsFeedViewModel(favoriteArtists: NewsFeedArtist.list))
+            .environmentObject(NewsViewModel(news: News.list))
     }
 }

@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let newsFeedView = NewsFeedView()
-            .environmentObject(NewsFeedViewModel())
+            .environmentObject(NewsViewModel())
             .environmentObject(DeeplinkViewModel())
 
         // Use a UIHostingController as window root view controller.
