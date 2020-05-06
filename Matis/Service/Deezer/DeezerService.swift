@@ -19,15 +19,15 @@ final class DeezerService {
     private init() { }
     
     // MARK: - Methods
-    func getUserFavoriteArtists(userId: Int) -> AnyPublisher<[DeezerArtist], Error> {
+    func fetchUserFavoriteArtists(userId: Int) -> AnyPublisher<[DeezerArtist], Error> {
         apiRequester.fetch(UserFavoriteArtistsEndpoint(), with: userId)
     }
     
-    func getArtistAlbums(artistId: Int) -> AnyPublisher<[DeezerAlbum], Error> {
+    func fetchArtistAlbums(artistId: Int) -> AnyPublisher<[DeezerAlbum], Error> {
         apiRequester.fetch(ArtistAlbumsEndpoint(), with: artistId)
     }
     
-    func getUserPlaylists(userId: Int) -> AnyPublisher<[DeezerPlaylist], Error> {
+    func fetchUserPlaylists(userId: Int) -> AnyPublisher<[DeezerPlaylist], Error> {
         apiRequester.fetch(UserPlaylistsEndpoint(), with: userId)
     }
     

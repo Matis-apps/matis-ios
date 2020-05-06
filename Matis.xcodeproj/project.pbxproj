@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5219149624633FFD00D2D683 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219149524633FFD00D2D683 /* NewsService.swift */; };
 		521F1C2F245DF5C400E2A7B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C2E245DF5C400E2A7B1 /* AppDelegate.swift */; };
 		521F1C31245DF5C400E2A7B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C30245DF5C400E2A7B1 /* SceneDelegate.swift */; };
 		521F1C33245DF5C400E2A7B1 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F1C32245DF5C400E2A7B1 /* NewsFeedView.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5219149524633FFD00D2D683 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		521F1C2B245DF5C400E2A7B1 /* Matis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521F1C2E245DF5C400E2A7B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		521F1C30245DF5C400E2A7B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5219149424633FE900D2D683 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				5219149524633FFD00D2D683 /* NewsService.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		521F1C22245DF5C400E2A7B1 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 			children = (
 				521F1C7E245EC57300E2A7B1 /* Image */,
 				521F1C55245DFAC800E2A7B1 /* Deezer */,
+				5219149424633FE900D2D683 /* News */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -389,6 +400,7 @@
 				524D923C245ECCE5005F5237 /* String+ToDate.swift in Sources */,
 				52AFC27A24620B090067A9FC /* NewsHeaderComponent.swift in Sources */,
 				52C583E22462035C002BFBCD /* News.swift in Sources */,
+				5219149624633FFD00D2D683 /* NewsService.swift in Sources */,
 				521F1C51245DF77600E2A7B1 /* Request.swift in Sources */,
 				521F1C5E245DFBD800E2A7B1 /* DeezerArtist.swift in Sources */,
 				52F88E1024603ADE0004B1EC /* Color.swift in Sources */,
