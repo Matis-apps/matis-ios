@@ -8,12 +8,18 @@
 
 import Foundation
 
+enum NewsType {
+    case latestAlbumReleased
+    case latestPlaylistUpdated
+}
+
 struct News: Identifiable {
     let id: Int
     let title: String
     let creator: NewsCreator
     let posterPath: String?
     let udpatedAt: Date
+    let type: NewsType
 }
 
 struct NewsCreator {
@@ -27,19 +33,22 @@ extension News {
                           title: "Vision EP",
                           creator: NewsCreator.list[1],
                           posterPath: "https://cdns-images.dzcdn.net/images/cover/d713bd2026a702494c953f5d748d5bfb/500x500-000000-80-0-0.jpg",
-                          udpatedAt: Date())
+                          udpatedAt: Date(),
+                          type: .latestAlbumReleased)
     
     static let list = [
         News(id: 96873792,
              title: "Contrasts",
              creator: NewsCreator.list[0],
              posterPath: "https://cdns-images.dzcdn.net/images/cover/f5b18738124d8bc6785e50b0b6f02a48/500x500-000000-80-0-0.jpg",
-             udpatedAt: Date()),
+             udpatedAt: Date(),
+             type: .latestAlbumReleased),
         News(id: 129932722,
              title: "Vision EP",
              creator: NewsCreator.list[1],
              posterPath: "https://cdns-images.dzcdn.net/images/cover/d713bd2026a702494c953f5d748d5bfb/500x500-000000-80-0-0.jpg",
-             udpatedAt: Date())
+             udpatedAt: Date(),
+             type: .latestAlbumReleased)
     ]
 }
 

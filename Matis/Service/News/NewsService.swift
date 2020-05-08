@@ -24,10 +24,15 @@ final class NewsService {
         fetchUserPlaylists(userId: userId)
             .combineLatest(fetchUserArtistsLatestRelease(userId: userId))
             .map { ($0 + $1).sorted(by: { $0.udpatedAt > $1.udpatedAt }) }
+            .map { self.filterCreatorIsNot(userId: userId, news: $0) }
             .eraseToAnyPublisher()
     }
     
     // MARK: - Private methods
+    private func filterCreatorIsNot(userId: Int, news: [News]) -> [News] {
+        news.filter { $0.creator.id != userId }
+    }
+    
     private func fetchUserPlaylists(userId: Int) -> AnyPublisher<[News], Never> {
         DeezerService
             .shared
@@ -46,7 +51,8 @@ final class NewsService {
                                           name: $0.creator.name,
                                           avatarPath: nil),
                      posterPath: $0.posterPath,
-                     udpatedAt: $0.updatedAtDate)
+                     udpatedAt: $0.updatedAtDate,
+                     type: .latestPlaylistUpdated)
             }
     }
     
@@ -59,7 +65,8 @@ final class NewsService {
                                          name: artist.name,
                                          avatarPath: artist.avatarPath),
                     posterPath: album.posterPath,
-                    udpatedAt: releaseDate)
+                    udpatedAt: releaseDate,
+                    type: .latestAlbumReleased)
     }
     
     private func getLatestAlbumReleased(albums: [DeezerAlbum]) -> DeezerAlbum? {
